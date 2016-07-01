@@ -1,21 +1,70 @@
-<%= simple_form_for(@idea) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :idea_name %>
-    <%= f.input :description %>
-    <%= f.input :customer %>
-    <%= f.input :problem %>
-    <%= f.input :business_model %>
-    <%= f.input :i_have_experience_in_this_field %>
-    <%= f.input :i_am_passionate_in_this_field %>
-    <%= f.input :i_have_hobbies_that_are_related_to_this_field %>
-    <%= f.input :rank %>
-    <%= f.input :enthusiasm %>
-    <%= f.association :user %>
+<%= form_for @idea, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :idea_name, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :idea_name, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :description, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :customer, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :customer, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :problem, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :problem, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :business_model, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :business_model, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :i_have_experience_in_this_field, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.check_box :i_have_experience_in_this_field, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :i_am_passionate_in_this_field, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.check_box :i_am_passionate_in_this_field, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :i_have_hobbies_that_are_related_to_this_field, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.check_box :i_have_hobbies_that_are_related_to_this_field, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :rank, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :rank, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :enthusiasm, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :enthusiasm, :class => 'text-field form-control' %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  ideas_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>
